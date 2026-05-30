@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — BriefQuote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: #050d1a; }
+    body { background: #050d1a; color: #e5e7eb; font-family: 'DM Sans', sans-serif; line-height: 1.7; -webkit-text-fill-color: initial; }
+    body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 80% 60% at 20% -10%, rgba(37,99,235,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 110%, rgba(37,99,235,0.08) 0%, transparent 60%); pointer-events: none; z-index: 0; }
+    * { position: relative; z-index: 1; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(5,13,26,0.8); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 34px; height: 34px; background: linear-gradient(135deg, #2563eb, #60a5fa); border-radius: 9px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(37,99,235,0.4); }
+    .logo-text { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    .logo-text span { color: #60a5fa; }
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 40px 100px; }
+    .page-tag { display: inline-block; background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.25); color: #93c5fd; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+    h1 { font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.1; }
+    .sub { color: #94a3b8; font-size: 16px; margin-bottom: 48px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+    .contact-card { background: rgba(11,25,46,0.9); border: 1px solid rgba(37,99,235,0.2); border-radius: 12px; padding: 24px; }
+    .contact-card-icon { font-size: 24px; margin-bottom: 12px; }
+    .contact-card h3 { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .contact-card p { color: #94a3b8; font-size: 14px; margin-bottom: 12px; }
+    .contact-card a { color: #60a5fa; font-size: 14px; font-weight: 500; text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+    .form-section { background: rgba(11,25,46,0.9); border: 1px solid rgba(37,99,235,0.2); border-radius: 16px; padding: 32px; }
+    .form-section h2 { font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .form-section p { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+    .field { margin-bottom: 20px; }
+    label { display: block; color: #93c5fd; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600; }
+    input, textarea, select { width: 100%; background: #1e3a5f; border: 1px solid rgba(96,165,250,0.2); border-radius: 8px; padding: 12px 14px; color: #f1f5f9; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+    input:focus, textarea:focus, select:focus { border-color: rgba(96,165,250,0.6); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    textarea { resize: vertical; min-height: 120px; }
+    select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2360a5fa' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    .submit-btn { width: 100%; background: #2563eb; border: none; color: #fff; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Outfit', sans-serif; letter-spacing: 0.04em; transition: all 0.2s; box-shadow: 0 0 24px rgba(37,99,235,0.3); margin-top: 8px; }
+    .submit-btn:hover { box-shadow: 0 0 32px rgba(37,99,235,0.5); transform: translateY(-1px); }
+    .success-msg { display: none; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); border-radius: 8px; padding: 16px; color: #6ee7b7; font-size: 14px; margin-top: 16px; text-align: center; }
+    footer { border-top: 1px solid rgba(37,99,235,0.1); padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: #4b5563; font-size: 13px; font-family: 'DM Mono', monospace; }
+    footer a { color: #6b7280; text-decoration: none; }
+    footer a:hover { color: #60a5fa; }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .container { padding: 40px 20px 80px; } h1 { font-size: 28px; } .contact-grid { grid-template-columns: 1fr; } .form-section { padding: 24px; } footer { padding: 24px 20px; flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12H15M9 8H15M9 16H12M5 20H19C20.1 20 21 19.1 21 18V6C21 4.9 20.1 4 19 4H5C3.9 4 3 4.9 3 6V18C3 19.1 3.9 20 5 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="logo-text">Brief<span>Quote</span></div>
+  </a>
+  <a href="https://app.briefquote.co.uk" style="background:#2563eb;color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">Try Free →</a>
+</nav>
+
+<div class="container">
+  <div class="page-tag">Get in touch</div>
+  <h1>Contact Us</h1>
+  <p class="sub">Got a question, found a bug, or want to share feedback? We'd love to hear from you.</p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <h3>Email Us</h3>
+      <p>For general enquiries and support</p>
+      <a href="mailto:hello@briefquote.co.uk">hello@briefquote.co.uk</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">⚡</div>
+      <h3>Response Time</h3>
+      <p>We typically respond within 24 hours on weekdays</p>
+      <span style="color:#60a5fa;font-size:14px;font-weight:500;">Mon – Fri, 9am – 6pm</span>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h2>Send a Message</h2>
+    <p>Fill in the form below and we'll get back to you as soon as possible.</p>
+
+    <form action="https://formspree.io/f/xzdwqdqq" method="POST" id="contactForm">
+      <div class="field">
+        <label>YOUR NAME</label>
+        <input type="text" name="name" placeholder="e.g. Mike Thompson" required />
+      </div>
+      <div class="field">
+        <label>YOUR EMAIL</label>
+        <input type="email" name="email" placeholder="your@email.com" required />
+      </div>
+      <div class="field">
+        <label>SUBJECT</label>
+        <select name="subject">
+          <option value="general">General Enquiry</option>
+          <option value="support">Technical Support</option>
+          <option value="billing">Billing & Subscription</option>
+          <option value="feedback">Feedback & Suggestions</option>
+          <option value="bug">Report a Bug</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>MESSAGE</label>
+        <textarea name="message" placeholder="Tell us how we can help..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">SEND MESSAGE →</button>
+      <div class="success-msg" id="successMsg">✓ Message sent! We'll get back to you within 24 hours.</div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 BriefQuote</span>
+  <div style="display:flex;gap:24px;">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('successMsg').style.display = 'block';
+        btn.textContent = 'SENT ✓';
+      } else {
+        btn.textContent = 'Error — try emailing us directly';
+      }
+    } catch {
+      btn.textContent = 'Error — try emailing us directly';
+    }
+  });
+</script>
+
+</body>
+</html>
