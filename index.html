@@ -867,6 +867,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @media (max-width: 600px) {
+  #example [style*="grid-template-columns:1fr 48px"] {
+    grid-template-columns: 1fr 36px 46px 52px 52px !important;
+    font-size: 11px !important;
+  }
+}
     /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
@@ -1198,9 +1204,9 @@
     <div class="pricing-card">
       <div class="pricing-plan">Starter</div>
       <div class="pricing-price">Free</div>
-      <div class="pricing-desc">Try BriefQuote with 3 real quotes. No card, no time limit.</div>
+      <div class="pricing-desc">Try BriefQuote with 5 real quotes. No card, no time limit.</div>
       <ul class="pricing-features">
-        <li>3 quotes to get started</li>
+        <li>5 quotes to get started</li>
         <li>AI quote generation</li>
         <li>Editable line items</li>
         <li>PDF download</li>
